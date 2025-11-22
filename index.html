@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pr?sentation ? Entretien des ponts</title>
+    <meta name="description" content="Pr?sentation simple en fran?ais pour entretien d'embauche ? entretien et r?paration des ponts." />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="identity">
+          <h1>
+            <span data-field="name">[Votre nom]</span>
+          </h1>
+          <p class="subtitle">
+            <span data-field="title">Technicien en entretien et r?paration des ponts</span>
+          </p>
+          <p class="contact">
+            <span data-field="phone">[T?l?phone]</span>
+            ? <span data-field="email">[Email]</span>
+            ? <span data-field="location">[Ville, Pays]</span>
+          </p>
+        </div>
+        <div class="actions no-print">
+          <div class="form-grid">
+            <label>
+              Nom et pr?nom
+              <input type="text" name="name" placeholder="Votre nom" />
+            </label>
+            <label>
+              Titre
+              <input type="text" name="title" placeholder="Technicien en entretien des ponts" />
+            </label>
+            <label>
+              T?l?phone
+              <input type="text" name="phone" placeholder="+33 6 00 00 00 00" />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="vous@email.com" />
+            </label>
+            <label>
+              Ville, Pays
+              <input type="text" name="location" placeholder="Lyon, France" />
+            </label>
+          </div>
+          <button class="print-btn" onclick="window.print()">Imprimer</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section>
+          <h2>Pr?sentation (fran?ais simple)</h2>
+          <p>
+            Bonjour. Je m?appelle <strong><span data-field="name">[Votre nom]</span></strong>.
+            Je travaille dans l?entretien et la r?paration des ponts.
+            Je suis s?rieux, ponctuel et tr?s attentif ? la s?curit?.
+            Je comprends bien les consignes techniques et j?utilise les EPI.
+            Je peux travailler seul ou en ?quipe, et je m?adapte vite aux m?thodes de votre entreprise.
+          </p>
+        </section>
+
+        <section>
+          <h2>Exp?rience et t?ches r?alis?es</h2>
+          <ul>
+            <li>Inspection simple des ouvrages: relev?s, photos, fiches, rep?rage des d?fauts.</li>
+            <li>R?paration du b?ton: purge, traitement d?armatures, mortiers de r?paration, finition.</li>
+            <li>?tanch?it? et joints de chauss?e: d?pose, pose, contr?le de la bonne mise en ?uvre.</li>
+            <li>Protection anticorrosion: pr?paration des supports, peinture, contr?le d??paisseur.</li>
+            <li>Ma?onnerie/pierre: rejointoiement, remplacement d??l?ments ab?m?s, petites reprises.</li>
+            <li>Traitement des fissures: ouverture, injection (r?sine/?poxy), nettoyage, contr?le.</li>
+            <li>Renforcement local: plats, boulons, chevilles, petites platelages m?talliques.</li>
+            <li>Nettoyage et pr?paration: hydrod?molition/hydrogommage, sablage, d?poussi?rage.</li>
+            <li>Acc?s et travail en hauteur: ?chafaudages, nacelles, v?rifications simples.</li>
+            <li>S?curit? de chantier: balisage, gestion de la circulation, respect des consignes.</li>
+            <li>Qualit?: autocontr?les, photos avant/apr?s, tra?abilit? des mat?riaux.</li>
+            <li>Coordination: ?changes avec chef de chantier, bureau d??tudes et client.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Comp?tences cl?s</h2>
+          <ul>
+            <li>Lecture simple de plans, niveaux, cotes, et respect du CCTP.</li>
+            <li>Outils: marteau-piqueur, ponceuse, perceuse, m?langeur, pompe d?injection.</li>
+            <li>Mat?riaux: mortiers de r?paration, r?sines, galvanisation ? froid, peintures, membranes.</li>
+            <li>Connaissance des pathologies: corrosion des armatures, ?clats, fissures, carbonatation.</li>
+            <li>Organisation: zone propre, tri des d?chets, rangement, finitions soign?es.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Disponibilit? et motivation</h2>
+          <p>
+            Je suis motiv? et disponible rapidement. Je peux m?adapter aux horaires et aux d?placements.
+            Je souhaite rejoindre votre ?quipe pour remettre les ponts en bon ?tat, de fa?on s?re et durable.
+          </p>
+        </section>
+
+        <section>
+          <h2>Langue</h2>
+          <p>
+            Je parle fran?ais simple. Je demande des mots clairs et des consignes courtes.
+            J?apprends vite et j?am?liore mon fran?ais chaque jour.
+          </p>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Document pr?t ? imprimer (A4). Remplissez vos informations ci-dessus puis cliquez sur ? Imprimer ?.</p>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        const inputs = document.querySelectorAll('.actions input[name]');
+        const defaultValues = Object.create(null);
+        // Capture defaults from the page
+        document.querySelectorAll('[data-field]').forEach(function (el) {
+          const key = el.getAttribute('data-field');
+          if (!(key in defaultValues)) defaultValues[key] = el.textContent.trim();
+        });
+        function updateField(name, value) {
+          document.querySelectorAll('[data-field="' + name + '"]').forEach(function (el) {
+            el.textContent = value && value.trim() ? value.trim() : defaultValues[name] || '';
+          });
+        }
+        inputs.forEach(function (input) {
+          input.addEventListener('input', function (e) {
+            updateField(input.name, input.value);
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
